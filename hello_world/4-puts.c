@@ -1,12 +1,19 @@
 #include <stdio.h>
 
-/*Utilise Standard*/
-
+/**
+ * main - prints with puts
+ *
+ * Utilise Standard
+ *
+ * int main = integer main function
+ *
+ * puts = chaine de caract√res
+ *
+ * Return:0 (Success)*/
 
  int main(void)
-/*integer main fonction*/
+
 {
 	puts("\"Programming is like building a multilingual puzzle");
 		return (0);
 }
-/*puts = chaine de caract√r*/
