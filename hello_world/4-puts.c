@@ -7,11 +7,12 @@
  *
  * int main = integer main function
  *
- * puts = chaine de caractÃres
+ * puts = chaine de caractï¿½res
  *
- * Return:0 (Success)*/
+ * Return:0 (Success)
+ */
 
- int main(void)
+int main(void)
 
 {
 	puts("\"Programming is like building a multilingual puzzle");
