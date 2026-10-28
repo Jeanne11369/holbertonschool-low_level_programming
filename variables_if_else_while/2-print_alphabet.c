@@ -11,10 +11,10 @@ char letter = 'a';
 
 while (letter <= 'z')
 {
-putchar(letter)
-letter++
+putchar(letter);
+letter++;
 }
-putchar('n\');
+putchar('\n');
 
 Return (0);
 }
