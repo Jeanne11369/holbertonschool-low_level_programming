@@ -1,5 +1,10 @@
 include < stdio.h >
 
+/**
+ * main - Prints the size of various types
+ *
+ * Return: 0 (Success)
+ */
 {
 	int main(void);
 	printf("Size of a char: %zu byte(s)\n", sizeof(char));
