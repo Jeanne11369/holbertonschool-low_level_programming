@@ -1,5 +1,5 @@
 # Green Tech Efficiency & Benchmarking Lab
-This project introduces benchmarking as an engineering practice: running predefined C programs, measuring execution time, comparing implementations, and reasoning what the results mean in terms of efficiency and sustainability.
+This project introduces benchmarking : running C programs, measuring execution time, comparing implementations, and reasoning what the results mean in terms of efficiency and sustainability.
 
 ## 1. Measurement Methodology
 Three experiments were conducted using the provided C source files. All programs were compiled with the required GCC flags:
@@ -7,22 +7,22 @@ Three experiments were conducted using the provided C source files. All programs
 `-Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-long-long`
 
 ### Calculation Methods
-The first experiment, `baseline_loop.c`, executed a deterministic calculation 100 million times. The program was executed three times to observe possible timing variations. The average execution time was obtained by adding the three recorded execution times and dividing their sum by three.
+In baseline_loop.c, a calculation was repeated 100 million times. We ran the program three times, then added the times and divided by three to find the average.
 
-The second experiment, `comparison_algorithms.c`, compared two implementations: a naive algorithm using nested loops and a single-pass algorithm using one loop. Both implementations were measured during at least three executions. To compare algorithm performance, the naive algorithm's average execution time was divided by the single-pass algorithm's average execution time.
+In comparison_algorithms.c, we compared nested loops (naive) with one loop (single pass). We ran each version at least three times, then divided their average times to see how much longer one took.
 
-The third experiment, `instrumentation_lab.c`, involved adding timing instrumentation to three processing phases: building a dataset, processing its elements, and calculating a checksum. Here, each processing phase's percentage was calculated by dividing its execution time by the total measured CPU time and multiplying by 100.
+In instrumentation_lab.c, we timed three steps: creating data, processing it, and calculating a checksum. Each step’s percentage was its time divided by the total time, multiplied by 100.
 
-CPU execution times were measured using `clock()` from `<time.h>`, with the results converted into seconds using `CLOCKS_PER_SEC`.
+We measured CPU time using clock() from <time.h> and divided by CLOCKS_PER_SEC to get seconds.
 
 ## 2. Observed Performance Differences
 
 ### Baseline Measurement
 The baseline experiment produced the following execution times:
 
-- Run 1: 1.177335 seconds
-- Run 2: 1.176947 seconds
-- Run 3: 1.177463 seconds
+- Run 1: 1.177335 sec;
+- Run 2: 1.176947 sec;
+- Run 3: 1.177463 sec;
 
 The average execution time was 1.177248 seconds.
 
@@ -32,10 +32,7 @@ The average execution times were:
 - Naive algorithm: 1.665235 seconds
 - Single-pass algorithm: 0.000079 seconds
 
-The measured execution-time ratio was 21,078.
-This makes the Naive algorithm approximately 21,078 times longer than the single-pass.
-
-An important distinction is that the provided implementations do not calculate identical results. Therefore, the measurements compare their execution costs but do not establish a fair performance comparison between equivalent algorithms.
+The naive version took about 21,079 times as much CPU time as the single-pass version. However, they produce different results, so this is not a fair comparison of two ways to solve the same problem.
 
 ### Instrumentation Experiment
 
@@ -46,33 +43,26 @@ The measured CPU times were:
 - REDUCE: 0.000196 seconds
 - TOTAL: 0.000973 seconds
 
-The phase consuming the most CPU time was Building Data, accounting for approximately 39% of the total measured execution time.
+The phase consuming the most CPU time was Building Data with approximately 39% of the total measured execution time.
 
 ## 3. Relation Between Runtime and Energy Consumption
 
-Execution time is relevant to energy efficiency because processing operations require computational resources.
-Under comparable conditions, reducing CPU activity can potentially reduce energy consumption, however, shorter CPU execution time does not automatically guarantee lower energy consumption. Eergy usage also depends on hardware characteristics, processor power, memory activity, and system configuration.
+Using less CPU time may save energy, but it is not guaranteed. Energy use also depends on the hardware and how the system runs.
 
-Since this project measured CPU time rather than electrical power, no quantitative conclusion about energy savings can be established.
+We only measured CPU time, so we cannot calculate how much energy was saved.
+
 
 ## 4. Limitations of the Experiment
 There are a few things to keep in mind when looking at these results.
 
-First, when measuring CPU time, it doesn't tell us exactly how long a program takes in real time or how much energy it actually uses.
-Execution times can also change slightly depending on what's happening on the computer, like other programs running in the background or how accurately the system measures time.
+CPU time does not tell us the total time a program takes or how much energy it uses. Measurements can also vary between runs.
 
-Another important point is that the two algorithms we compared don't do exactly the same amount of work therefore don't return the same result comparatively, so it's not a completely fair comparison.
+The two versions produce different results, so the comparison is not fully fair. 
 
-Finally, since all the tests were done in the same environment, we can't assume we'd get the same results on a different computer.Several limitations affect the interpretation of these results.
+We also tested on only one system, so results may differ on other computers.
 
 ## 5. Practical Engineering Takeaway
 
-What I learned from this project is that measuring performance is an important step before trying to make a program more efficient.
+What I learned from this project is that measuring performance before making changes has its importance. Timing each part helps show where improvements may be needed and how algorithm choices affect speed.
 
-By comparing execution times and looking at each part of a program separately, it's easier to see where most of the processing time goes and what might need improvement.
-
-I also got a better understanding of how the way an algorithm is written can make a big difference in its performance.
-
-My main takeaway is that good benchmarking is about testing under consistent conditions, understanding what those numbers mean, and using them to make better decisions.
-
-Even though execution time doesn't directly tell us how much energy a program consumes, it's still a useful starting point for writing more efficient and potentially more sustainable code.
+Good benchmarking is obtained while testing under similar conditions and through an understanding of the results. CPU time alone cannot tell us energy use, but it can help us write more efficient code.
