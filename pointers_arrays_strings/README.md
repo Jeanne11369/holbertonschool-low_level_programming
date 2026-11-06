@@ -30,3 +30,17 @@ Task 4 : Reverses n integers in place by swapping opposite elements.
 Task 5 : Converts ASCII lowercase letters to uppercase in place.
 Task 6 : Capitalizes words at the start and after the specified separators.
 Task 7 : Replaces a/A, e/E, o/O, t/T, l/L with 4, 3, 0, 7, 1.
+
+# Even more pointers, arrays and strings
+
+This project explores memory operations, string searching,
+multidimensional arrays, and matrix diagonals.
+
+Task 0 : Fills the first n bytes of a memory area with a constant byte and returns the original pointer.
+Task 1 : Copies n bytes from a source memory area to a destination and returns the destination pointer.
+Task 2 : Finds the first occurrence of a character in a string, including the null terminator.
+Task 3 : Counts the initial characters of a string that belong to an accepted set.
+Task 4 : Finds the first character in a string that matches any character in an accepted set.
+Task 5 : Finds the first occurrence of a substring in a string.
+Task 7 : Prints an 8 by 8 chessboard, followed by a newline after each row.
+Task 8 : Prints the sums of the two diagonals of a square integer matrix.
