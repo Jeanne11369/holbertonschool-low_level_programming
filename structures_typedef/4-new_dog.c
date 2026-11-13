@@ -21,7 +21,8 @@ dog = malloc(sizeof(dog_t));
 if (dog == NULL)
 return (NULL);
 
-for (len = 0; name[len] != '\0'; len++)		;
+for (len = 0; name[len] != '\0'; len++)
+;
 
 dog->name = malloc(len + 1);
 if (dog->name == NULL)
@@ -33,7 +34,8 @@ return (NULL);
 for (i = 0; i <= len; i++)
 dog->name[i] = name[i];
 
-for (len = 0; owner[len] != '\0'; len++);
+for (len = 0; owner[len] != '\0'; len++)
+;
 
 dog->owner = malloc(len + 1);
 if (dog->owner == NULL)
