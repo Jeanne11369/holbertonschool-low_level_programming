@@ -2,20 +2,24 @@
 #include "dog.h"
 
 /**
-* main - Entry point
-*
-* Return: Always 0 (Success)
-*/
+ * main - Tests dog creation and memory release
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
-struct dog my_dog;
+dog_t *my_dog;
 
-my_dog.name = "Poppy";
-my_dog.age = 3.5;
-my_dog.owner = "Bob";
+my_dog = new_dog("Poppy", 3.5, "Bob");
 
-printf("My name is %s, and I am %.1f :) - Woof!\n",
-my_dog.name, my_dog.age);
+if (my_dog == NULL)
+{
+printf("Failed to create dog\n");
+return (1);
+}
+
+print_dog(my_dog);
+free_dog(my_dog);
 
 return (0);
 }
